@@ -1,11 +1,11 @@
 # Linux Kernel Assignment:
 ## Problem #1     
-### Block System call: 
+## Block System call: 
 #### (a) block system call for date command 
 #### (b) block system call for Firefox as well
 
 ## Problem #2  
-### Play with Directory:
+## Play with Directory:
 #### (a) create a directory without name from command line
 #### (b) create a directory with name "-okgoogle"
 ```

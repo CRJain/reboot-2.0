@@ -3,19 +3,9 @@
 ## Block System call: 
 #### (a) block system call for date command 
 ```
-[chinmayjain@localhost ~]$ date
-Sun 28 Jun 2020 10:17:43 AM IST
-[chinmayjain@localhost ~]$ sudo chmod -x /bin/date 
-[sudo] password for chinmayjain: 
-[chinmayjain@localhost ~]$ date
-bash: /usr/bin/date: Permission denied
 ```
 #### (b) block system call for Firefox as well
 ```
-[chinmayjain@localhost ~]$ firefox #This starts a new firefox window
-[chinmayjain@localhost ~]$ sudo chmod -x /usr/bin/firefox
-[chinmayjain@localhost ~]$ firefox
-bash: /usr/bin/firefox: Permission denied
 ```
 ## Problem #2  
 ## Play with Directory:

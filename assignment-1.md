@@ -150,6 +150,8 @@ Password:
 [Jack@localhost ~]$ mv /home/Jill/Jill.txt /home/Jack/
 [Jack@localhost ~]$ ls
 Jill1  Jill2  Jill.txt
+[Jack@localhost ~]$ ls /home/Jill
+Jack1  Jack2  Jack.txt
 ```
 Source:
 > https://www.guru99.com/file-permissions.html

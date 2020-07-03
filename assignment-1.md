@@ -11,7 +11,9 @@
 ## Play with Directory:
 #### (a) create a directory without name from command line
 ```
+[chinmayjain@localhost ~]$ mkdir $'\n'
 ```
+![ls](https://github.com/CRJain/reboot-2.0/blob/master/image.png)
 #### (b) create a directory with name "-okgoogle"
 ```
 [chinmayjain@localhost ~]$ mkdir ./-okgoogle

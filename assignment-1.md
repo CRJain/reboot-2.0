@@ -62,7 +62,97 @@ A
 21 directories, 0 files
 ```
 ## Problem #4
-
+#### (a) create two users named Jack and Jill from command line
+```
+[chinmayjain@localhost ~]$ sudo adduser Jack
+[chinmayjain@localhost ~]$ sudo passwd Jack 
+Changing password for user Jack.
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+[chinmayjain@localhost ~]$ sudo adduser Jill
+[chinmayjain@localhost ~]$ sudo passwd Jill
+Changing password for user Jill.
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+```
+#### (b) login with Jack user and create a file name Jack.txt using vim editor and write "Hello Jack"
+```
+[chinmayjain@localhost ~]$ su - Jack
+Password:
+[Jack@localhost ~]$ vim Jack.txt
+Hello Jack
+~                                                                              
+~                                                                              
+~                                                                              
+~                                                                              
+~                                                                              
+:wq
+[Jack@localhost ~]$ cat Jack.txt 
+Hello Jack
+```
+#### (c) from Jack user also create two directories named Jack1 & Jack2
+```
+[Jack@localhost ~]$ mkdir Jack1 Jack2
+[Jack@localhost ~]$ ls
+Jack1  Jack2  Jack.txt
+```
+#### (d) now login from Jill user and create a file Jill.txt using vim editor and write "Hello Jill"
+```
+[Jack@localhost ~]$ su - Jill
+Password: 
+[Jill@localhost ~]$ vim Jill.txt
+Hello Jill
+~                                                                              
+~                                                                              
+~                                                                              
+~                                                                              
+~                                                                                                                        :wq
+[Jill@localhost ~]$ cat Jill.txt 
+Hello Jill
+```
+#### (e) from Jill user also create two directoires named Jill1 & Jill2
+```
+[Jill@localhost ~]$ mkdir Jill1 Jill2
+[Jill@localhost ~]$ ls
+Jill1  Jill2  Jill.txt
+```
+#### (f) swap these files and directories in between users (don't use root account)
+```
+[Jill@localhost ~]$ su - Jack 
+Password:
+[Jack@localhost ~]$ chmod 777 -R /home/Jack/
+[Jack@localhost ~]$ ls -l
+total 12
+drwxrwxrwx. 2 Jack Jack 4096 Jul  3 12:31 Jack1
+drwxrwxrwx. 2 Jack Jack 4096 Jul  3 12:31 Jack2
+-rwxrwxrwx. 1 Jack Jack   11 Jul  3 12:31 Jack.txt
+[Jack@localhost ~]$ su - Jill
+Password:
+[Jill@localhost ~]$ chmod 777 -R /home/Jill/
+[Jill@localhost ~]$ ls -l
+total 12
+drwxrwxrwx. 2 Jill Jill 4096 Jul  3 12:34 Jill1
+drwxrwxrwx. 2 Jill Jill 4096 Jul  3 12:34 Jill2
+-rwxrwxrwx. 1 Jill Jill   11 Jul  3 12:53 Jill.txt
+[Jill@localhost ~]$ mv /home/Jack/Jack1 /home/Jill/
+[Jill@localhost ~]$ mv /home/Jack/Jack2 /home/Jill/
+[Jill@localhost ~]$ mv /home/Jack/Jack.txt /home/Jill/
+[Jill@localhost ~]$ ls
+Jack1  Jack2  Jack.txt  Jill1  Jill2  Jill.txt
+[Jill@localhost ~]$ su - Jack 
+Password: 
+[Jack@localhost ~]$ mv /home/Jill/Jill1 /home/Jack/
+[Jack@localhost ~]$ mv /home/Jill/Jill2 /home/Jack/
+[Jack@localhost ~]$ mv /home/Jill/Jill.txt /home/Jack/
+[Jack@localhost ~]$ ls
+Jill1  Jill2  Jill.txt
+```
+Source:
+> https://www.guru99.com/file-permissions.html
 ## Problem #5
 ## Play with Files and Directories:
 #### (a) create 4 files named abc.txt ok fine g.txt under /tmp directory

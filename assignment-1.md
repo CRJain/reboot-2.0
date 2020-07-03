@@ -71,6 +71,7 @@ New password:
 BAD PASSWORD: The password is shorter than 8 characters
 Retype new password: 
 passwd: all authentication tokens updated successfully.
+
 [chinmayjain@localhost ~]$ sudo adduser Jill
 [chinmayjain@localhost ~]$ sudo passwd Jill
 Changing password for user Jill.
@@ -130,6 +131,7 @@ total 12
 drwxrwxrwx. 2 Jack Jack 4096 Jul  3 12:31 Jack1
 drwxrwxrwx. 2 Jack Jack 4096 Jul  3 12:31 Jack2
 -rwxrwxrwx. 1 Jack Jack   11 Jul  3 12:31 Jack.txt
+
 [Jack@localhost ~]$ su - Jill
 Password:
 [Jill@localhost ~]$ chmod 777 -R /home/Jill/
@@ -138,11 +140,13 @@ total 12
 drwxrwxrwx. 2 Jill Jill 4096 Jul  3 12:34 Jill1
 drwxrwxrwx. 2 Jill Jill 4096 Jul  3 12:34 Jill2
 -rwxrwxrwx. 1 Jill Jill   11 Jul  3 12:53 Jill.txt
+
 [Jill@localhost ~]$ mv /home/Jack/Jack1 /home/Jill/
 [Jill@localhost ~]$ mv /home/Jack/Jack2 /home/Jill/
 [Jill@localhost ~]$ mv /home/Jack/Jack.txt /home/Jill/
 [Jill@localhost ~]$ ls
 Jack1  Jack2  Jack.txt  Jill1  Jill2  Jill.txt
+
 [Jill@localhost ~]$ su - Jack 
 Password: 
 [Jack@localhost ~]$ mv /home/Jill/Jill1 /home/Jack/
@@ -212,7 +216,7 @@ Sources:
 > https://www.computerhope.com/unix/uls.htm
 ## Problem #6
 ## Run command without any output:
-#### open terminal and type any command, once you press enter your output of given command must not print (you are not allowed to redirect output anywhere)
+#### open terminal and type any command, once you press enter your output of given command must not print [you are not allowed to redirect output anywhere]
 ```
 ```
 ## Extra Tasks

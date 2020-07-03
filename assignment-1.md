@@ -1,6 +1,6 @@
 # Linux Kernel Assignment:
 ## Problem #1     
-## Block System call: 
+## Block System call: (still looking for answers)
 #### (a) block system call for date command 
 ```
 ```
@@ -61,6 +61,8 @@ A
 
 21 directories, 0 files
 ```
+## Problem #4
+
 ## Problem #5
 ## Play with Files and Directories:
 #### (a) create 4 files named abc.txt ok fine g.txt under /tmp directory
@@ -116,3 +118,12 @@ aa  ok
 Sources:
 > https://www.cyberciti.biz/faq/how-to-delete-files-containing-character-numberdigit/
 > https://www.computerhope.com/unix/uls.htm
+## Extra Tasks
+#### (a) Write in a Directory:
+```
+[chinmayjain@localhost ~]$ mkdir temp
+[chinmayjain@localhost ~]$ setfattr -n user.msg -v "Hello World" temp/
+[chinmayjain@localhost ~]$ getfattr -n user.msg temp
+# file: temp
+user.msg="Hello World"
+```

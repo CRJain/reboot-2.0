@@ -11,7 +11,7 @@
 ## Play with Directory:
 #### (a) create a directory without name from command line
 ```
-[chinmayjain@localhost ~]$ mkdir $'\n'
+[chinmayjain@localhost ~]$ mkdir $'\n' # tried with space first, which was wrong; still not correct way, I think
 ```
 ![ls](https://github.com/CRJain/reboot-2.0/blob/master/image.png)
 #### (b) create a directory with name "-okgoogle"

@@ -221,10 +221,9 @@ Sources:
 [chinmayjain@localhost ~]$ bash -D
 bash-5.0$ date
 bash-5.0$ cal
-bash-5.0$ $"Hello World"
+bash-5.0$ $"Hello World" # A list of all double-quoted strings preceded by $ is printed on the standard output.
 "Hello World"
 ```
-> Note: A list of all double-quoted strings preceded by $ is printed on the standard output.
 Source:
 > https://www.tutorialspoint.com/unix_commands/bash.htm
 ## Extra Tasks

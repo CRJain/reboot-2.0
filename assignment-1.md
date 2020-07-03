@@ -218,7 +218,15 @@ Sources:
 ## Run command without any output:
 #### open terminal and type any command, once you press enter your output of given command must not print [you are not allowed to redirect output anywhere]
 ```
+[chinmayjain@localhost ~]$ bash -D
+bash-5.0$ date
+bash-5.0$ cal
+bash-5.0$ $"Hello World"
+"Hello World"
 ```
+> Note: A list of all double-quoted strings preceded by $ is printed on the standard output.
+Source:
+> https://www.tutorialspoint.com/unix_commands/bash.htm
 ## Extra Tasks
 #### (a) Write in a Directory:
 ```

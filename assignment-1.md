@@ -26,4 +26,91 @@ Or
 Desktop    Downloads  -okgoogle  Public     Videos
 Documents  Music      Pictures   Templates
 ```
-Source: https://www.tecmint.com/manage-linux-filenames-with-special-characters/
+Source:
+> https://www.tecmint.com/manage-linux-filenames-with-special-characters/
+## Problem #3
+## Create a Directory Structure:
+![Question](https://1.bp.blogspot.com/-x6vLWgVIU7Q/XvjlJyKJsnI/AAAAAAAAU0M/lmH8ddGkm90gXPNwUZCUvwCTN6XfJINZgCLcBGAsYHQ/s320/Screenshot%2B2020-06-29%2Bat%2B12.12.55%2BAM.png)
+```
+[chinmayjain@localhost ~]$ mkdir -p A/{B/{G/K,H/J},C/{I/J,J/L},D/{E/M,F/L}}/Reboot.txt
+[chinmayjain@localhost ~]$ tree A
+A
+├── B
+│   ├── G
+│   │   └── K
+│   │       └── Reboot.txt
+│   └── H
+│       └── J
+│           └── Reboot.txt
+├── C
+│   ├── I
+│   │   └── J
+│   │       └── Reboot.txt
+│   └── J
+│       └── L
+│           └── Reboot.txt
+└── D
+    ├── E
+    │   └── M
+    │       └── Reboot.txt
+    └── F
+        └── L
+            └── Reboot.txt
+
+21 directories, 0 files
+```
+## Problem #5
+## Play with Files and Directories:
+#### (a) create 4 files named abc.txt ok fine g.txt under /tmp directory
+```
+[chinmayjain@localhost ~]$ touch /tmp/{abc.txt,ok,fine,g.txt}
+[chinmayjain@localhost ~]$ ls /tmp/
+abc.txt
+fine
+g.txt
+ok
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-chronyd.service-pi1fXe
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-colord.service-TSmSmj
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-dbus-broker.service-E9s2Tf
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-earlyoom.service-6JuKtj
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-fwupd.service-S3XeTg
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-geoclue.service-3ua6ph
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-ModemManager.service-N8j1Ff
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-rtkit-daemon.service-Rn0zwg
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-switcheroo-control.service-kqDmfh
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-systemd-logind.service-mtcQQf
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-upower.service-8rbO1f
+tracker-extract-files.1000
+```
+#### (b) create 3 directories aa aaa aaaa under /tmp directory
+```
+[chinmayjain@localhost ~]$ mkdir /tmp/{aa,aaa,aaaa}
+[chinmayjain@localhost ~]$ ls /tmp/
+aa
+aaa
+aaaa
+abc.txt
+fine
+g.txt
+ok
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-chronyd.service-pi1fXe
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-colord.service-TSmSmj
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-dbus-broker.service-E9s2Tf
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-earlyoom.service-6JuKtj
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-fwupd.service-S3XeTg
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-geoclue.service-3ua6ph
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-ModemManager.service-N8j1Ff
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-rtkit-daemon.service-Rn0zwg
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-switcheroo-control.service-kqDmfh
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-systemd-logind.service-mtcQQf
+systemd-private-7d2d8b03fedc48c4a0526e1726a83082-upower.service-8rbO1f
+tracker-extract-files.1000
+```
+#### (c) give ls command to list the content of /tmp directory [make sure it will only list the content (file|directory)  having 2 char in their name]
+```
+[chinmayjain@localhost ~]$ ls --hide='???*' /tmp
+aa  ok
+```
+Sources:
+> https://www.cyberciti.biz/faq/how-to-delete-files-containing-character-numberdigit/
+> https://www.computerhope.com/unix/uls.htm

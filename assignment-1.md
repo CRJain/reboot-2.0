@@ -210,6 +210,11 @@ aa  ok
 Sources:
 > https://www.cyberciti.biz/faq/how-to-delete-files-containing-character-numberdigit/
 > https://www.computerhope.com/unix/uls.htm
+## Problem #6
+## Run command without any output:
+#### open terminal and type any command, once you press enter your output of given command must not print (you are not allowed to redirect output anywhere)
+```
+```
 ## Extra Tasks
 #### (a) Write in a Directory:
 ```

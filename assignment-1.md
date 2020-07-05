@@ -238,9 +238,12 @@ user.msg="Hello World"
 #### (b) Run some command without letting bash store it in history:
 ```
 [chinmayjain@localhost ~]$ history
-  329  echo $HISTCONTROL
-  330  HISTCONTROL=ignoreboth
-  331  history
-[chinmayjain@localhost ~]$ history
-  329  history # deleted previous both commands with history -d 329
+  339  echo Adding HISTCONTROL=ignoreboth to .bashrc
+  340  nano .bashrc
+  341  echo Added Successfully
+  342  history
+[chinmayjain@localhost ~]$ history # after running history -d 340
+  339  echo Adding HISTCONTROL=ignoreboth to .bashrc
+  340  echo Added Successfully
+  341  history
 ```

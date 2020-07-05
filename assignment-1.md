@@ -242,7 +242,7 @@ user.msg="Hello World"
   340  nano .bashrc
   341  echo Added Successfully
   342  history
-[chinmayjain@localhost ~]$ history # after running history -d 340
+[chinmayjain@localhost ~]$ history # after running " history -d 340"
   339  echo Adding HISTCONTROL=ignoreboth to .bashrc
   340  echo Added Successfully
   341  history

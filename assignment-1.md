@@ -235,3 +235,12 @@ Source:
 # file: temp
 user.msg="Hello World"
 ```
+#### (b) Run some command without letting bash store it in history:
+```
+[chinmayjain@localhost ~]$ history
+  329  echo $HISTCONTROL
+  330  HISTCONTROL=ignoreboth
+  331  history
+[chinmayjain@localhost ~]$ history
+  329  history # deleted previous both commands with history -d 329
+```

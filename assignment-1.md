@@ -226,6 +226,32 @@ bash-5.0$ $"Hello World" # A list of all double-quoted strings preceded by $ is 
 ```
 Source:
 > https://www.tutorialspoint.com/unix_commands/bash.htm
+## Problem #7
+## Create a shell script:
+#### (a) create a shell script named /root/delvex.sh
+```
+[root@localhost ~]# nano /root/delvex.sh
+```
+#### (b) make sure it will run /bin/sh shell
+```
+[root@localhost ~]# cat /root/delvex.sh 
+#!/bin/sh
+```
+#### (c) a user will be running this script by using a command named "opensource"
+```
+
+```
+when a user  run like  "opensource  time" it must give current time only
+when it runs like "opensource user"  it will give list of interactive shell users only
+when run like "opensource 100"  it must print "Hello Delvex" 100 times in interval of 1 sec
+if runs like  "opensource windows"  then it must shutdown OS
+if run opensource command without any parameter  then it must show out --
+             i)   name of kernel 
+             ii)   version of kernel 
+             iii)  current date in the format of  /DD/MM/YY
+             iv)  name of OS 
+             v)   last reboot time 
+## Problem #8
 ## Extra Tasks
 #### (a) Write in a Directory:
 ```

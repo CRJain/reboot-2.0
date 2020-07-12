@@ -239,18 +239,101 @@ Source:
 ```
 #### (c) a user will be running this script by using a command named "opensource"
 ```
+[root@localhost ~]# nano /usr/bin/opensource
+  GNU nano 4.9.3                        /usr/bin/opensource                                   
+#!/bin/bash
+/root/delvex.sh $1
+
+
+
+
+
+                                       [ Read 2 lines ]
+^G Get Help    ^O Write Out   ^W Where Is    ^K Cut Text    ^J Justify     ^C Cur Pos
+^X Exit        ^R Read File   ^\ Replace     ^U Paste Text  ^T To Spell    ^_ Go To Line
+[root@localhost ~]# chmod +x /root/delvex.sh
+[root@localhost ~]# chmod +x /usr/bin/opensource
+```
+### delvex.sh
+```
+[root@localhost ~]# cat /root/delvex.sh 
+#!/bin/sh
+if [ $# -gt 0 ]
+then
+	if [ $1 == "time" ]
+	then
+		echo "Current Time: `date +%T`"
+	elif [ $1 == "user" ]
+	then
+		echo "Users: `users`"
+	elif [ $1 == "windows" ]
+	then
+		echo "Shutting down system... "
+		sleep 2
+		shutdown now
+	elif [ $1 -eq 100 ]
+	then
+		c=$1
+		while [ $c != 0 ]
+		do
+			echo "$c Hello Delvex"
+			sleep 1
+			((c=$c-1))
+		done
+	fi
+else
+	echo "Name of Kernel: `uname -s`"
+	echo "Version of Kernel: `uname -r`"
+	echo "Current Date: `date +'%d/%m/%y'`"
+	echo "Name of OS: `uname -o`"
+	echo "Last Boot Time: `who -b | awk '{ print $4 }'`"
+fi
+```
+#### (d) when a user run like "opensource time" it must give current time only
+```
+[root@localhost ~]# opensource time
+Current Time: 12:56:08
+```
+#### (e) when it runs like "opensource user" it will give list of interactive shell users only
+```
+[root@localhost ~]# opensource user
+Users: root
+```
+#### (f) when run like "opensource 100" it must print "Hello Delvex" 100 times in interval of 1 sec
+```
+[root@localhost ~]# opensource 100
+100 Hello Delvex
+99 Hello Delvex
+98 Hello Delvex
+97 Hello Delvex
+96 Hello Delvex
+95 Hello Delvex
+94 Hello Delvex
+93 Hello Delvex
+92 Hello Delvex
+91 Hello Delvex
+90 Hello Delvex
+```
+#### (g) if runs like "opensource windows" then it must shutdown OS
+```
+[root@localhost ~]# opensource windows
+Shutting down system...
 
 ```
-when a user  run like  "opensource  time" it must give current time only
-when it runs like "opensource user"  it will give list of interactive shell users only
-when run like "opensource 100"  it must print "Hello Delvex" 100 times in interval of 1 sec
-if runs like  "opensource windows"  then it must shutdown OS
-if run opensource command without any parameter  then it must show out --
-             i)   name of kernel 
-             ii)   version of kernel 
-             iii)  current date in the format of  /DD/MM/YY
-             iv)  name of OS 
-             v)   last reboot time 
+#### (h) if run "opensource" command without any parameter then it must show out --
+####        i)   name of kernel 
+####        ii)   version of kernel 
+####        iii)  current date in the format of /DD/MM/YY
+####        iv)  name of OS 
+####        v)   last reboot time 
+```
+[root@localhost ~]# opensource 
+Name of Kernel: Linux
+Version of Kernel: 5.6.19-300.fc32.x86_64
+Current Date: 12/07/20
+Name of OS: GNU/Linux
+Last Boot Time: 13:03
+```
 ## Problem #8
 ## Extra Tasks
 #### (a) Write in a Directory:

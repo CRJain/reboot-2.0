@@ -321,11 +321,11 @@ Shutting down system...
 
 ```
 #### (h) if run "opensource" command without any parameter then it must show out --
-	i) name of kernel 
-	ii) version of kernel 
-	iii) current date in the format of /DD/MM/YY
-	iv) name of OS 
-	v) last reboot time 
+ - name of kernel 
+ - version of kernel 
+ - current date in the format of /DD/MM/YY
+ - name of OS 
+ - last reboot time 
 ```
 [root@localhost ~]# opensource 
 Name of Kernel: Linux

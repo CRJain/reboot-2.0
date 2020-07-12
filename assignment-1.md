@@ -335,6 +335,17 @@ Name of OS: GNU/Linux
 Last Boot Time: 13:03
 ```
 ## Problem #8
+## Create a user with default settings:
+#### (a) create a user named delvex and password of this user will be fedora
+```
+
+```
+#### (b) when user get created, below listed things will come by default -
+ - history size will be 5000 
+ - history file will be  /home/delvex/myhist.txt
+ - default shell will be  /bin/sh 
+```
+```
 ## Extra Tasks
 #### (a) Write in a Directory:
 ```

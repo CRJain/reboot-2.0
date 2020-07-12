@@ -254,7 +254,7 @@ Source:
 [root@localhost ~]# chmod +x /root/delvex.sh
 [root@localhost ~]# chmod +x /usr/bin/opensource
 ```
-### delvex.sh
+> delvex.sh
 ```
 [root@localhost ~]# cat /root/delvex.sh 
 #!/bin/sh

@@ -337,14 +337,59 @@ Last Boot Time: 13:03
 ## Problem #8
 ## Create a user with default settings:
 #### (a) create a user named delvex and password of this user will be fedora
+> Editing /etc/skel/.bashrc to add following lines
+ - HISTSIZE=5000
+ - HISTFILE="$HOME/myhist.txt"
+ - SHELL=/bin/sh
 ```
+[root@localhost ~]# nano /etc/skel/.bashrc
+  GNU nano 4.9.3                         /etc/skel/.bashrc                                    
+# .bashrc
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+HISTSIZE=5000
+HISTFILE="$HOME/myhist.txt"
+SHELL=/bin/sh
+
+                                      [ Read 21 lines ]
+^G Get Help    ^O Write Out   ^W Where Is    ^K Cut Text    ^J Justify     ^C Cur Pos
+^X Exit        ^R Read File   ^\ Replace     ^U Paste Text  ^T To Spell    ^_ Go To Line
+```
+> Creating user delvex
+```
+[root@localhost ~]# adduser delvex
+[root@localhost ~]# passwd delvex 
+Changing password for user delvex.
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: all authentication tokens updated successfully.
 ```
 #### (b) when user get created, below listed things will come by default -
  - history size will be 5000 
  - history file will be  /home/delvex/myhist.txt
  - default shell will be  /bin/sh 
 ```
+[root@localhost ~]# su - delvex
+[delvex@localhost ~]$ printf "$HISTSIZE \n$HISTFILE \n$SHELL \n"
+5000 
+/home/delvex/myhist.txt 
+/bin/sh
 ```
 ## Extra Tasks
 #### (a) Write in a Directory:

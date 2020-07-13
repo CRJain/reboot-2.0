@@ -278,7 +278,7 @@ then
 		do
 			echo "$c Hello Delvex"
 			sleep 1
-			((c=$c-1))
+			c=$(($c-1))
 		done
 	fi
 else

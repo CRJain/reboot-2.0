@@ -1,5 +1,5 @@
 # Linux Networking
-Friday Aug 14 : Session 020
+<u><b>Friday Aug 14 : Session 020</b></u>
 ## Topics to be covered
 - Communication Devices
   - Hub

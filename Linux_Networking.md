@@ -1,5 +1,5 @@
 # Linux Networking
-#### Friday Aug 14 : Session 020
+#### August 14, 2020 : Session 020
 ## Topics to be covered
 - Communication Devices
   - Hub
@@ -7,7 +7,7 @@
   - Switch
   - Router
   - Firewall Devices
-- Ipv4 and Ipv6
+- IPv4 and IPv6
 - CCNA (Cisco Certified Network Associate)
   - MTA
   - MTU
@@ -74,3 +74,27 @@
 > RFC - A Request for Comments (RFC) is a publication from the Internet Society (ISOC) and its associated bodies, 
   most prominently the Internet Engineering Task Force (IETF), the principal technical development and standards-setting 
   bodies for the Internet.
+
+#### August 18, 2020 : Session 021
+## IP Address
+- It is the Logical Address of a computer.
+- We can understand it in reference to permanent and current address format, like
+  - Permanent Address would be a computer's MAC Address.
+  - Current(Logical) Address would be like IP.
+- Categories are:
+  - IPv4
+  - IPv6
+#### IPv4
+- Example:
+  - 192.168.0.100
+  - Here, each partition is of 1 Byte(i.e.,8 bits). Total size of IPv4 Address is 4 Bytes(32 bits).
+  - The range of each partition is 0-255(2^8 bits, i.e. 256).
+- We can run ```ipconfig``` command (on Windows) and ```ifconfig``` command (on Linux, Mac) to view IP related info.
+- Somewhere there is an IP Collection and a wire which is taken out from there contains IP (which can further be divided into muliple IPs).
+> **Among following which IPv4 Addresses are wrong?**
+> - (A) 192.168.200.255
+> - (B) 192.168.100.09
+> - (C) 192.168.100.05
+> - (D) 192.168.5000
+
+> **Answer:** Option (B) is incorrect IPv4 Address. This is because leading 0 represents octal representation and octal has values from 0-7. As 9 is out of range, it makes this option incorrect and similarly makes the option (C) correct. In option (D) the last partition has capacity to store 2 Bytes (i.e. 2^16 bits = 65536), range could be from 0 to 65535 (and 5000 lies in this only), hence the given IP is correct.

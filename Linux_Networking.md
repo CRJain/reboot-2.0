@@ -109,11 +109,12 @@
 > **Answer:** 53.132.60.34. To achieve this we can convert the given number into it's binary and the make groups of 8 bits from end and write them in their decimal form.
 
 > **Solution:** Binary of 897858594 => 110101 10000100 00111100 00100010
-    - (00110101) = (53) in decimal [added 2 zeroes in start to complete 8 bits]
-    - (10000100) = (132) in decimal
-    - (00111100) = (60) in decimal
-    - (00100010) = (34) in decimal
-  - Hence, our final IPv4 address looks like **53.132.60.34**
+>   - (00110101) = (53) in decimal [added 2 zeroes in start to complete 8 bits]
+>   - (10000100) = (132) in decimal
+>   - (00111100) = (60) in decimal
+>   - (00100010) = (34) in decimal
+
+> Hence, our final IPv4 address looks like **53.132.60.34**
 
 > **Question: How to connect to 0.0.0.0?**
 

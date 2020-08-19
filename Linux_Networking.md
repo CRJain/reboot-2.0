@@ -91,10 +91,38 @@
   - The range of each partition is 0-255(2^8 bits, i.e. 256).
 - We can run ```ipconfig``` command (on Windows) and ```ifconfig``` command (on Linux, Mac) to view IP related info.
 - Somewhere there is an IP Collection and a wire which is taken out from there contains IP (which can further be divided into muliple IPs).
-> **Among following which IPv4 Addresses are wrong?**
+> **Question: Among following which IPv4 Addresses are wrong?**
 > - (A) 192.168.200.255
 > - (B) 192.168.100.09
 > - (C) 192.168.100.05
 > - (D) 192.168.5000
 
 > **Answer:** Option (B) is incorrect IPv4 Address. This is because leading 0 represents octal representation and octal has values from 0-7. As 9 is out of range, it makes this option incorrect and similarly makes the option (C) correct. In option (D) the last partition has capacity to store 2 Bytes (i.e. 2^16 bits = 65536), range could be from 0 to 65535 (and 5000 lies in this only), hence the given IP is correct.
+
+> **Question: How is 192.168.5000 converted to 192.168.19.136?**
+![Practical Example](https://github.com/CRJain/reboot-2.0/blob/master/image.png)
+
+> **Answer:** 19.136 can be written as 19(2^8)+136(2^0)=5000. The whole IP Address can be represented by a single number, as 192(2^24)+168(2^16)+19(2^8)+136(2^0) = 3232240520.
+
+> **Question: Convert 897858594 to equivalent IPv4 address using math.**
+
+> **Answer:** 53.132.60.34. To achieve this we can convert the given number into it's binary and the make groups of 8 bits from end and write them in their decimal form.
+
+> **Solution:** Binary of 897858594 => 110101 10000100 00111100 00100010
+    - (00110101) = (53) in decimal [added 2 zeroes in start to complete 8 bits]
+    - (10000100) = (132) in decimal
+    - (00111100) = (60) in decimal
+    - (00100010) = (34) in decimal
+  - Hence, our final IPv4 address looks like **53.132.60.34**
+
+> **Question: How to connect to 0.0.0.0?**
+
+> **Answer:** 0.0.0.0 as a target address refers variously to a non-routable host or to “this" host. In practice connecting to 0.0.0.0 is equivalent to connecting to localhost. When binding, “this" host expands to “any address on this host” — so applications commonly accept connections by binding to 0.0.0.0, which means they’ll receive packets addressed to any IPv4 address on the system. Localhost is a single address, mostly 127.0.0.1, while 0.0.0.0 means all addresses on this host.
+
+> **Question: Can we connect to 127.0.0.1 (localhost) from some other PC, if yes then how?**
+
+> **Answer:** We can connect to localhost from anywhere using tunneling protocol which allows private network communications to be sent across public network. For e.g., ngrok is a tool to achieve this.
+
+> **Question: What address is used by Bluetooth to connect with devices?**
+
+> **Answer:** Bluetooth uses a radio technology called frequency-hopping spread spectrum. It uses many protocols to search the devices in proximity. It uses a master slave architecture. Bonds between devices are created using pairing. When they pair up they share their MAC ADDRESS, NAME AND PROFILE and usually stores them in memory. Devices also share a secret key. Data is transmitted in packets over Bluetooth channels.

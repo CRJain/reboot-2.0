@@ -128,7 +128,7 @@
 
 > **Answer:** Bluetooth uses a radio technology called frequency-hopping spread spectrum. It uses many protocols to search the devices in proximity. It uses a master slave architecture. Bonds between devices are created using pairing. When they pair up they share their MAC ADDRESS, NAME AND PROFILE and usually stores them in memory. Devices also share a secret key. Data is transmitted in packets over Bluetooth channels.
 
-#### August 18, 2020 : Session 022
+#### August 20, 2020 : Session 022
 #### NetMask
 - Role of Netmask is to divide IP address into 2 parts - Network ID and Host.
 - For e.g.,let IP is 192.168.10.200 and NetMask is 255.255.255.0, then

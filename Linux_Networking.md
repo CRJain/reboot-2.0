@@ -127,3 +127,40 @@
 > **Question: What address is used by Bluetooth to connect with devices?**
 
 > **Answer:** Bluetooth uses a radio technology called frequency-hopping spread spectrum. It uses many protocols to search the devices in proximity. It uses a master slave architecture. Bonds between devices are created using pairing. When they pair up they share their MAC ADDRESS, NAME AND PROFILE and usually stores them in memory. Devices also share a secret key. Data is transmitted in packets over Bluetooth channels.
+
+#### August 18, 2020 : Session 022
+#### NetMask
+- Role of Netmask is to divide IP address into 2 parts - Network ID and Host.
+- For e.g.,let IP is 192.168.10.200 and NetMask is 255.255.255.0, then
+  - 192.168.10 is called Network ID and,
+  - 200 is Host
+- If two systems are directly connected and they have exact same Network ID, then they can communicate with each other.
+> **Question: How to connect multiple systems in a local area?**
+
+> **Answer:** **Switch** would be the correct answer. It understands MAC (newer Switch can understand both IP as well as MAC and are called Layer 3 Switch). Switch supports Full Duplex mode, so simultaneous communications can happen. It supports all type of communications. It works on Layer 2 (now-a-days on Layer 3 also). It is secure and same Network ID systems can communicate with each other.
+
+> We can also use **Hub** but it doesn't understand IP or MAC Address and hence, broadcasts any message from the origin to all connected systems. Thus, leading to lack of security. Hub works on Physical Layer of OSI(Open Systems Interconnection) Model. It doesn't allow multiple communications at the same time.
+
+- **Router** can be used for communications between systems having different Network IDs. It works on Layer 3 of OSI Model.
+- We can assign netmask using ```netmask``` command. For e.g., ```ifconfig virbr0 172.27.10.200 netmask 255.255.0.0```.
+- If we have IP as 192.168.10.200 and netmask as 255.255.255.0, then we can have 256-2=254 unique IP addresses (192.168.10.1 - 192.168.10.254).
+  - 192.168.10.0 is called Network IP and,
+  - 192.168.10.255 is called Broadcast IP
+- When we assign an IP without providing a netmask value, it automatically gets assigned with a netmask value called **Default NetMask**.
+  - Default Netmask depends on Class of IP.
+  - If IP is like 0-127.0-255.0-255.0-255 => Default netmask will be 255.0.0.0 (Class A IP). It can have 2^24 unique IP addresses.
+  - If IP is like 128-191.0-255.0-255.0-255 => Default netmask will be 255.255.0.0 (Class B IP). It can have 2^16 unique IP addresses.
+  - If IP is like 192-223.0-255.0-255.0-255 => Default netmask will be 255.255.255.0 (Class C IP). It can have 2^8 unique IP addresses.
+  - If IP is like 224-239.0-255.0-255.0-255 => It doesn't have a netmask (Class D IP). It can't be assigned to any of the devices we use. It is not made for normal networking purposes. It is used for **Multi-casting**.
+  - If IP is like 240-255.0-255.0-255.0-255 => It is reserved for Scientific Research + **Broad-casting** (Class E IP).
+- **Casting** means communicating.
+- If communication of a system happens with
+  - only one system, it is called **Uni-casting**.
+  - all the systems, it is called **Broad-casting**.
+  - more than one system but not all, it is called **Multi-casting**.
+> **Distance-vector routing protocol**
+> A distance-vector routing protocol in data networks determines the best route for data packets based on distance. Distance-vector routing protocols measure the distance by the number of routers a packet has to pass, one router counts as one hop. Some distance-vector protocols also take into account network latency and other factors that influence traffic on a given route.
+
+> **Routing Information Protocol**
+> The Routing Information Protocol is one of the oldest distance-vector routing protocols which employ the hop count as a routing metric. RIP prevents routing loops by implementing a limit on the number of hops allowed in a path from source to destination.
+> - Multi-casting IP of RIP is 224.0.0.9

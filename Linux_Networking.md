@@ -1,5 +1,5 @@
 # Linux Networking
-#### August 14, 2020 : Session 020
+#### August 14, 2020 : [Session 020](https://www.youtube.com/watch?v=HOmrR4jcMdQ)
 ## Topics to be covered
 - Communication Devices
   - Hub
@@ -75,7 +75,7 @@
   most prominently the Internet Engineering Task Force (IETF), the principal technical development and standards-setting 
   bodies for the Internet.
 
-#### August 18, 2020 : Session 021
+#### August 18, 2020 : [Session 021](https://www.youtube.com/watch?v=AdKUypckV6w)
 ## IP Address
 - It is the Logical Address of a computer.
 - We can understand it in reference to permanent and current address format, like
@@ -128,7 +128,7 @@
 
 > **Answer:** Bluetooth uses a radio technology called frequency-hopping spread spectrum. It uses many protocols to search the devices in proximity. It uses a master slave architecture. Bonds between devices are created using pairing. When they pair up they share their MAC ADDRESS, NAME AND PROFILE and usually stores them in memory. Devices also share a secret key. Data is transmitted in packets over Bluetooth channels.
 
-#### August 20, 2020 : Session 022
+#### August 20, 2020 : [Session 022](https://www.youtube.com/watch?v=bFpB8BnL52M)
 #### NetMask
 - Role of Netmask is to divide IP address into 2 parts - Network ID and Host.
 - For e.g.,let IP is 192.168.10.200 and NetMask is 255.255.255.0, then
@@ -164,3 +164,56 @@
 > **Routing Information Protocol**
 > The Routing Information Protocol is one of the oldest distance-vector routing protocols which employ the hop count as a routing metric. RIP prevents routing loops by implementing a limit on the number of hops allowed in a path from source to destination.
 > - Multi-casting IP of RIP is 224.0.0.9
+
+#### August 25, 2020 : [Session 023](https://www.youtube.com/watch?v=QiFFPGnWSo0)
+#### Static and Dynamic IPs
+- There are 2 types of IP Assignments:
+  - Static
+  - Dynamic
+
+**Static IP**
+- We can assign IP manually using ```ifconfig <devicename> IP``` command but this IP remains only while the system is on and is gone after reboot.
+- We have several ways of assigning a permanent (or static) IP:
+  - using ```ip``` command
+  - using ```nmcli``` command
+  - by writing in network file itself
+- A file is automatically created for LAN Card. We can look into it at ```/etc/sysconfig/network-scripts/``` (in RHEL/CentOS etc.)
+- Run ```nmcli connection show``` to view all network devices.
+- We can delete connection using ```nmcli connection delete <connection-name>```.
+- See nmcli man page [here](https://linux.die.net/man/1/nmcli).
+
+**Dynamic IP**
+> **DHCP (Dynamic Host Configuration Protocol)** is a protocol that provides quick, automatic, and central management for the distribution of IP addresses within a network. DHCP is also used to configure the subnet mask, default gateway, and DNS server information on the device.
+
+- For example, there is a lab full of computers which are connected to a switch and this switch is connected to a server. When a computer is turned on it requests the server for an IP using DHCP protocol and the server provides it with an IP from the pool of IPs that it has and remembers the information about whom it gave which IP.
+- Another example could be a Wi-Fi Router or a Hotspot. It is also working in the same manner. The hotspot device provides unique IPs to all the devices connected to it using DHCP Protocol.
+- If we are connected to a wifi router or hotspot we can ask for IP using ```dhclient -v <network-device-name>``` and it will provide us with an IP.
+
+> **Question: We know two systems need IP to communicate with each other, so how does a system communicates to DHCP server asking for IP (as it does not have a IP, how is communication possible even for asking for IP)?**
+
+> **Answer:** Using **DHCPDISCOVER**. It is a DHCP message that marks the beginning of a DHCP interaction between client and server. This message is sent by a client (host or device connected to a network) that is connected to a local subnet. It’s a broadcast message that uses 255.255.255.255 as destination IP address while the source IP address is 0.0.0.0. See more about how DHCP works [here](https://www.thegeekstuff.com/2013/03/dhcp-basics/).
+
+#### Public and Private IPs
+- Two systems can communicate with each other if both have either private ip or both have public ip.
+
+**Private IP**
+- Private IP address of a system is the IP address which is used to communicate within the same network. Using private IP data or information can be sent or received within the same network. It is unique in a particular network but some other network could have same IP within it.
+- Private IP ranges for various IP classes are as follows:
+  - **Class A**: 10.x.x.x/255.0.0.0
+  - **Class B**: 172.16.x.x/255.255.0.0 - 172.31.x.x/255.255.0.0
+  - **Class C**: 192.168.0.x/24
+
+**Public IP**
+- Public IP address of a system is the IP address which is used to communicate outside the network. Public IP address is basically assigned by the ISP (Internet Service Provider). This IP address is unique in the whole world.
+- We can check out Public IP at:
+  - https://whatismyipaddress.com/
+  - https://ifconfig.me/
+  - using command ```curl ifconfig.me```
+
+#### IP Subnetting
+- A subnetwork or subnet is a logical subdivision of an IP network. The practice of dividing a network into two or more networks is called **subnetting**. Computers that belong to a subnet are addressed with an identical most-significant bit-group in their IP addresses.
+
+> **Prefix Length Notation**: In IPv4, the prefix (or network portion) of the address can be identified by a dotted-decimal netmask, commonly referred to as a subnet mask. For example, 255.255.255. indicates that the network portion, or prefix length, of the IPv4 address is the leftmost 24 bits.
+
+- For example, 192.168.0.0/24 can have 256 unique IP addresses, out of which one is network IP(192.168.0.0) and other is Broadcast IP(192.168.0.255) which can't be assigned to any system. Rest 254 IPs are usable.
+

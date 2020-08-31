@@ -215,5 +215,34 @@
 
 > **Prefix Length Notation**: In IPv4, the prefix (or network portion) of the address can be identified by a dotted-decimal netmask, commonly referred to as a subnet mask. For example, 255.255.255. indicates that the network portion, or prefix length, of the IPv4 address is the leftmost 24 bits.
 
-- For example, 192.168.0.0/24 can have 256 unique IP addresses, out of which one is network IP(192.168.0.0) and other is Broadcast IP(192.168.0.255) which can't be assigned to any system. Rest 254 IPs are usable.
+- For example, 192.168.1.0/24 can have 256 unique IP addresses, out of which one is Network IP(192.168.1.0) and other is Broadcast IP(192.168.1.255) which can't be assigned to any system. Rest 254 IPs are usable.
 
+#### August 27, 2020 : [Session 024](https://www.youtube.com/watch?v=mYnKMTKynvM&feature=youtu.be)
+#### IP Subnetting continued...
+- So, the leftmost 24 bits are fixed and the last 8 bits are all zeroes. There are following formulas:
+  - No. of networks = 2^(no. of ones) = 2^0 = 1
+  - No. of unique IPs per network = 2^(no. of zeroes) = 2^8 = 256
+- Taking a scenerio where we have 2 labs with multiple systems in them and we want to divide this IP such that the 2 labs can't communicate with each other.
+  - According to above formulas what we can do is add a 1 in the last 8 bits [10000000].
+  - The Subnet will now become 255.255.255.128 (or we can write like this, 192.168.1.0/25).
+    - No. of networks = 2^1 = 2
+    - No. of unique IPs per network = 2^7 = 128
+  - So, the first lab can have IPs from 192.168.1.0-127 (out of which 192.168.1.0,127 are reserved IPs).
+  - And the second lab will have IPs from 192.168.1.128-255 (out of which 192.168.1.128,255 are reserved IPs).
+  - Now the systems in each lab can communicate with each other but not with a system of another lab.
+- Similarly, we can create multiple networks from an IP. If we make 2 bits 1 out of 8 zero bits [11000000], then we have,
+  - No. of networks = 2^2 = 4
+  - No. of unique IPs per network = 2^6 = 64
+  - Subnet mask = 255.255.255.192 (or IP/26)
+- **Subnetting** can also be divided into two categories:
+  - **FLSM (Fixed Length Subnet Mask)**
+  - **VLSM (Variable Length Subnet Mask)**
+
+> Read about FLSM and VLSM in detail [here](https://www.includehelp.com/computer-networks/fixed-length-and-variable-length-subnet-mask-flsm-vlsm.aspx).
+
+- For practical, we can use docker. Suppose we want to divide IP 192.168.2.0 in three parts (126, 6, 2), we can do that as following:
+  - ```docker network create n1 --subnet 192.168.2.0/25```
+  - ```docker network create n2 --subnet 192.168.2.128/29```
+  - ```docker network create n3 --subnet 192.168.2.136/30```
+  - use ```ping``` command to check connectivity between systems and networks.
+- Another way to practice is using CISCO Packet Tracer.

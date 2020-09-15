@@ -246,3 +246,70 @@
   - ```docker network create n3 --subnet 192.168.2.136/30```
   - use ```ping``` command to check connectivity between systems and networks.
 - Another way to practice is using CISCO Packet Tracer.
+
+#### September 14, 2020 : [Session 025](https://www.youtube.com/watch?v=gcI1v-Nuv90)
+#### Telnet Server
+- Topics to be discussed are:
+  - Telnet
+  - SSH
+  - FTP
+  - NFS
+  - Samba
+  - LDAP
+  - Kerberos
+  - SMTP
+  - DHCP
+  - DNS
+- Client-Server Architecture:
+  - A system which sends a request is the client and the system which responds to that request is called server.
+- If we login to a system which physically present in front of us, then it is called **Local Login**.
+- If we are logging in to a system from a remote location, then it is called **Remote Login**.
+- Options for configuring Remote Login Server:
+  - GUI
+    - VNC
+    - Team Viewer
+    - AnyDesk
+  - CLI
+    - Telnet
+    - SSH
+    - PSSH(used earlier)
+    - Shell In A Box
+> "Think like a creater to understand the efforts put behind discoveries." - Ashutoshh Singh
+- Steps to Configure/Prepare Server in Linux Based systems:
+  1. Install related software
+  2. Configure Server(make changes if required)
+  3. Start Server(start listening)
+  4. Manage Security
+    - Permissions/ACL
+    - Firewall
+    - SElinux
+- Steps on Client side:
+  - Install Client side Software
+  - Connect to server
+- Steps to configure a **Fedora Machine** as a Server using **Telnet**:
+  1. Check if you have telnet-server installed using ```rpm -q telnet-server``` commmand. If not then run ```dnf install telnet-server``` to install telnet-server package.
+  - We can check all the things provided by this package using ```rpm -ql telnet-server```.
+  2. We don't have to configure things these days so directly going to step 3.
+  3. Start service. To start a service we can use ```systemctl``` tool. Run ```systemctl start telnet.socket``` to start the service.
+  - If any server can connect remotely, that means it has a socket file. All the socket files are stored at ```/usr/lib/systemd/system```. Socket of Telnet is usually of TCP type. Port of Telnet is 23. We can check this using ```netstat -nltp``` or ```ss -nltp``` commands. These commmands check which IP is binded with which port.
+  - There are 2 kinds of Servers:
+    - Independent
+    - Dependent
+  - Telnet is a dependent server, that's why it refers to systemd program. (We can see this when we run ```netstat -nltp```).
+  4. Security:
+    - Firewall - It is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules. A firewall typically establishes a barrier between a trusted network and an untrusted network, such as the Internet. To check status of firewall, run ```systemctl status firewalld.service```.
+- On client side the software name is **telnet**, on server side it was **telnet-server**.
+- When we try to access the server using server IP from another system, by default firewall rejects the connection.
+- We can check allowed ports by firewall by running ```firewall-cmd --list-ports``` command on Fedora.
+```
+[root@localhost ~]# firewall-cmd --list-ports 
+1025-65535/udp 1025-65535/tcp
+```
+- To add port to firewall run ```firewall-cmd --add-port=23/tcp```.
+```
+[root@localhost ~]# firewall-cmd --add-port=23/tcp
+success
+[root@localhost ~]# firewall-cmd --list-ports 
+1025-65535/udp 1025-65535/tcp 23/tcp
+```
+- Now, if we try to connect again, it will connect to the server.

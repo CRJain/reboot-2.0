@@ -313,3 +313,15 @@ success
 1025-65535/udp 1025-65535/tcp 23/tcp
 ```
 - Now, if we try to connect again, it will connect to the server.
+
+#### September 19, 2020 : [Session 026](https://youtu.be/hs21ZbXrQeY)
+#### CCNA
+- Cisco Internetwork Operating System (IOS) is a family of network operating systems used on many Cisco Systems routers and current Cisco network switches.
+- [IOS Command Line Modes](https://www.omnisecu.com/cisco-certified-network-associate-ccna/cisco-ios-command-line-modes.php):
+  - User mode
+  - Privileged mode
+  - Global Configuration mode
+- [Cisco Routers](https://www.cisco.com/c/en/us/products/routers/index.html)
+  - IOS is installed by default, but to access the router for the first time we have to connect it to our system using console cable.
+
+  
